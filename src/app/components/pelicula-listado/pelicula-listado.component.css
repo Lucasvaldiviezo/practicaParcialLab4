@@ -1,0 +1,54 @@
+.titulo{
+    position: relative;
+    left:30%
+}
+
+.tablaCompleta
+{
+    left:25%;
+    position: relative;
+    border-collapse: collapse;
+    width: 800px;
+    border-radius: 50%;
+    font-size: small;
+}
+
+th
+{
+    background-color: rgba(158, 54, 54, 0.959);
+    color: white;
+    
+}
+
+th, td
+{
+    text-align: center;
+    padding: 8px;
+   
+}
+
+tr{
+    border-width: 2px;
+    border-color: #000000;
+    border-style: groove;
+}
+
+tr:nth-child(even){background-color: #000000;}
+
+tbody{
+    background-color: rgb(233, 233, 233);
+}
+
+tbody:hover{
+    background-color: rgb(125, 184, 113);
+}
+
+img{
+    display:block; 
+    width:100px; 
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+

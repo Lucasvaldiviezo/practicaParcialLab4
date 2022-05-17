@@ -1,0 +1,39 @@
+.titulo{
+    text-align: center;
+}
+
+.tablaCompleta
+{
+    left:25%;
+    position: relative;
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 50%;
+}
+
+th
+{
+    background-color: rgba(0, 0, 0, 0.959);
+    color: white;
+    
+}
+
+th, td
+{
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #000000;}
+
+tbody{
+    background-color: rgb(233, 233, 233);
+    border-radius: 80%;
+}
+
+tbody:hover{
+    background-color: rgb(219, 159, 159);
+    cursor: pointer;
+}
+
+

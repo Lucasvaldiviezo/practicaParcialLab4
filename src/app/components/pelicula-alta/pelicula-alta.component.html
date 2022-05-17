@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="sign-up-htm">
+        <h3>Alta Pelicula</h3>
+        <form [formGroup]="formRegistro" (ngSubmit)="cargarPelicula()">
+            <!--NOMBRE-->
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" placeholder="Ingrese Nombre" formControlName="nombre">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['nombre'].errors?.['required'] && formRegistro.controls['nombre'].touched">
+                El nombre es requerido
+                </small>
+            </div>
+             <!--GENERO-->
+             <div>
+                <label for="tipo" >Genero:</label><br>
+                <input type="text"  id="tipo" placeholder="Ingrese tipo" formControlName="tipo">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['tipo'].errors?.['required'] && formRegistro.controls['tipo'].touched">
+                El tipo es requerido
+                </small>
+             </div>
+             <!--FECHA-->
+             <div>
+                <label for="fechaEstreno" >Fecha de Estreno:</label><br>
+                <input type="date" id="fechaEstreno" formControlName="fechaEstreno">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['fechaEstreno'].errors?.['required'] && formRegistro.controls['fechaEstreno'].touched">
+                La fecha es requerida
+                </small>
+             </div>
+             <!--CANTIDAD-->
+             <div>
+                <label for="cantidadPublico" >Cantidad de Publico:</label><br>
+                <input type="text"  id="cantidadPublico" placeholder="Ingrese cantidad de publico" formControlName="cantidadPublico">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['cantidadPublico'].errors?.['required'] && formRegistro.controls['cantidadPublico'].touched">
+                La cantidad es requerida
+                </small>
+             </div>
+             <!--ACTOR-->
+             <div>
+                <label for="actor" >Actor:</label><br>
+                <input type="text"  id="actor" placeholder="Actor" formControlName="actor" [value] = "actorParaMostrar">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['actor'].errors?.['required'] && formRegistro.controls['actor'].touched">
+                El actor es requerido
+                </small>
+             </div>
+             <!--IMAGEN PELICULA-->
+             <div>
+                 <input type="file" id="inputFile" accept=".png, .jpg, .jpeg" multiple (change)="obtenerImagen($event)">
+                 <label>Subir Imagen:</label>
+                 <label for="inputFile" class="labelInputFile">
+                     <img src="https://icons-for-free.com/download-icon-cloud+upload+file+storage+upload+icon-1320190558968694328_512.png" alt="upload file">
+                 </label>
+             </div>
+            <!--BOTON ACEPTAR-->
+            <input type="submit" class="btnAceptar" value="Aceptar" [disabled]="formRegistro.invalid">
+        </form>
+    </div>
+</div>
+<div class="mostradorDeImagen">
+    <img *ngIf="mostrarImagen" src="{{imagen}}" alt="imagenSubida" class="muestraImagen" >
+</div>
+<app-tabla-actor (actorSeleccionado)="tomarActorParaPelicula($event)"></app-tabla-actor>  

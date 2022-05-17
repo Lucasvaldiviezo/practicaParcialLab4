@@ -1,0 +1,30 @@
+<h3 class="titulo">Lista de Peliculas de {{actorParaPelicula}}</h3>
+<div *ngIf="mostrarListado">
+    <table class="tablaCompleta">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Fecha Estreno</th>
+                <th>Cantidad Publico</th>
+                <th>Actor</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody class="tCuerpo" *ngFor="let pelicula of listaFiltradaDePeliculas">
+            <tr>
+                <td>{{pelicula.peliculaId}}</td>
+                <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.tipo}}</td>
+                <td>{{pelicula.fechaEstreno}}</td>
+                <td>{{pelicula.cantidadPublico}}</td>
+                <td>{{pelicula.actor}}</td>
+                <td>
+                    <img src="{{pelicula.urlImagen}}" class="muestraImagen">
+                </td>
+            </tr>  
+        </tbody>
+    </table> 
+</div>
+

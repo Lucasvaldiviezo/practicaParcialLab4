@@ -1,0 +1,9 @@
+<div  class="container">
+    <h3 class="titulo">Lista de Paises</h3>
+    <div *ngFor="let pais of listadoPaises">
+        <div class="renglon" (click)="enviarPais(pais)">
+            {{pais.nombre}}
+            <img src="{{pais.bandera}}" class="imagen-bandera">
+        </div>
+    </div>       
+</div>

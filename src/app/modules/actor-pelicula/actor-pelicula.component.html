@@ -1,0 +1,48 @@
+
+
+<head>
+    <title>Jumbotron Template · Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+        <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+      <!-- Custom styles for this template -->
+</head>
+<body>
+     
+  
+  <main role="main">
+  
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <app-actor-listado (actorSeleccionado)="tomarActorParaDetalles($event)"></app-actor-listado><br><br>
+  
+    <div class="container">
+      <!-- Example row of columns -->
+      
+      <div class="row">
+        <div class="listadoPeliculas">
+            <app-pelicula-listado [actorRecibido]="nombreActor"></app-pelicula-listado>
+        </div>
+        <div class="detallePais">
+          <p>DETALLE PAIS</p>
+        </div>
+        <div class="detalleActor">
+          <p>DETALLE ACTOR</p>
+        </div>
+      </div>
+    </div> <!-- /container -->
+  </main>
+</body>

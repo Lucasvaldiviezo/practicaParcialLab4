@@ -1,0 +1,12 @@
+<div  class="container">
+    <h3 class="titulo">Lista de Actores</h3>
+    <div *ngFor="let actor of listaActores">
+        <div class="renglon" (click)="enviarActor(actor)">
+            <p><span class="texto">Nombre: </span>{{actor.nombre}}, {{actor.apellido}}<br>
+                <span class="texto">Pais: </span>{{actor.pais.nombre}}<br>
+                <span class="texto">Edad: </span>{{actor.edad}}
+            </p>
+            <img src="{{actor.pais.bandera}}" class="imagen-bandera">
+        </div>
+    </div>       
+</div>

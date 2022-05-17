@@ -1,0 +1,58 @@
+<div class="container">
+        <div class="sign-up-htm">
+            <h3>Alta actor</h3>
+            <form [formGroup]="formRegistro" (ngSubmit)="cargarActor()">
+                <!--NOMBRE-->
+                <div>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" placeholder="Ingrese Nombre" formControlName="nombre">
+                    <small class="invalid" 
+                    *ngIf="formRegistro.controls['nombre'].errors?.['required'] && formRegistro.controls['nombre'].touched">
+                    El nombre es requerido
+                    </small>
+                    <small class="invalid" *ngIf="formRegistro.controls['nombre'].errors?.['containsSpaces'] && formRegistro.controls['nombre'].touched">
+                    El nombre no puede contener espacios
+                    </small>
+                </div>
+                 <!--APELLIDO-->
+                 <div>
+                    <label for="apellido" >Apellido:</label><br>
+                    <input type="text"  id="apellido" placeholder="Ingrese Apellido" formControlName="apellido">
+                    <small class="invalid" 
+                    *ngIf="formRegistro.controls['apellido'].errors?.['required'] && formRegistro.controls['apellido'].touched">
+                    El apellido es requerido
+                    </small>
+                 </div>
+                 <!--EMAIL-->
+                 <div>
+                    <label for="emailRegistrarse" >Edad:</label><br>
+                    <input type="text" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                    <small class="invalid" 
+                    *ngIf="formRegistro.controls['edad'].errors?.['required'] && formRegistro.controls['edad'].touched">
+                    El edad es requerido
+                    </small>
+                    <small class="invalid"
+                    *ngIf="formRegistro.controls['edad'].errors?.['min'] || 
+                    formRegistro.controls['edad'].errors?.['max'] &&
+                    formRegistro.controls['edad'].touched">
+                    La edad debe ser de 18 a 99 años
+                    </small>
+                 </div>
+                 <!--PAIS-->
+                 <div>
+                    <label for="pais" >Pais:</label><br>
+                    <input type="text"  id="pais" placeholder="Ingrese pais" formControlName="pais" [value]="paisParaActor.nombre">
+                    <small class="invalid" 
+                    *ngIf="formRegistro.controls['pais'].errors?.['required']  && formRegistro.controls['pais'].touched ">
+                    El pais es requerido
+                    </small>
+                 </div>
+                <!--CIUDAD-->
+                <!--BOTON ACEPTAR-->
+                <input type="submit" class="btnAceptar" value="Aceptar" [disabled]="formRegistro.invalid">
+            </form>
+        </div>
+        
+</div>
+<app-tabla-paises (paisSeleccionado)="tomarPaisParaActor($event)"></app-tabla-paises>  
+ 

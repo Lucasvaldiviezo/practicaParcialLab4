@@ -1,0 +1,22 @@
+<h3 class="titulo">Lista de Actores</h3>
+<table class="tablaCompleta">
+    <thead class="tablaHead">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Pais</th>
+        </tr>
+    </thead>
+    <tbody class="tCuerpo" *ngFor="let actor of listaActores" (click)="seleccionarActor(actor)">
+        <tr>
+            <td>{{actor.id}}</td>
+            <td>{{actor.nombre}}</td>
+            <td>{{actor.apellido}}</td>
+            <td>{{actor.edad}}</td>
+            <td>{{actor.pais.nombre}}</td>
+        </tr>  
+    </tbody>
+</table> 
+

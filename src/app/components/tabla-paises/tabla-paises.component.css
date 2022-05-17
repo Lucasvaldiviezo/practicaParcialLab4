@@ -1,0 +1,43 @@
+.container{
+    position: absolute;
+    left:60%;
+    top:10.5%;
+    width: 20%;
+    height: 500px;
+    background-color:rgb(221, 118, 118);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align:center;
+    border-width: 10px;
+    border-color: rgb(206, 99, 0);
+    border-style:solid;
+    border-radius: 5px;
+    padding: 10px 50px;
+}
+
+.titulo{
+    padding: 0px 10px;
+}
+
+.renglon{
+    border-width: 2px;
+    border-color: black;
+    border-style:groove;
+    padding: 5px 5px;
+    background-color: white;
+    margin: 2px;
+}
+
+.renglon:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+.imagen-bandera{
+    width: 50px;
+    height: 30px;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-style:solid;
+}
+

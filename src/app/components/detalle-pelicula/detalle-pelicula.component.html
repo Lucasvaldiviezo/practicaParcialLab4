@@ -8,10 +8,10 @@
    
   
     <div class="card" style="width:300px">
-        <img class="card-img-top" src="/assets/imagenes/pelis.png" alt="Card image" style="width:100%">
+        <img class="card-img-top" src="{{unaPelicula.urlImagen}}" alt="Card image" style="width:100%">
         <div class="card-body">
           <h4 class="card-title">{{unaPelicula.id}}</h4>
-          <p class="card-text">La pelicula: {{unaPelicula.tipo}}, {{unaPelicula.cantidadPublico}}, {{unaPelicula.fechaEstreno | date:"shortDate"}}</p>
+          <p class="card-text">{{unaPelicula.tipo}}, {{unaPelicula.cantidadPublico}}, {{unaPelicula.fechaEstreno | date:"shortDate"}}</p>
           <a href="#" class="btn btn-danger">Borrar</a>
         </div>
       </div>

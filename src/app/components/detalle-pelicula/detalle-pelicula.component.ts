@@ -14,7 +14,7 @@ export class DetallePeliculaComponent implements OnInit {
   auxPais = new Paises("","","");
   actorParaPelicula = new Actor(0,"","",this.auxPais,0,"");
   constructor() { 
-    this.unaPelicula = new Pelicula(5,"Terminator","Sci-Fi",this.fecha,200,"",this.actorParaPelicula);
+    this.unaPelicula = new Pelicula(0,"","",this.fecha,0,"",this.actorParaPelicula);
   }
 
   ngOnInit(): void {

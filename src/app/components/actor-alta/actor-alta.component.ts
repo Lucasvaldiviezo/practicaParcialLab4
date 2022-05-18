@@ -59,6 +59,7 @@ export class ActorAltaComponent implements OnInit {
     +this.formRegistro.getRawValue().edad,
     "")
     this.fireStore.actualizarColeccionCompletaActores("Actores",actor);
+    this.storageService.obtenerURLImagen("actores",this.formRegistro.getRawValue().nombre+this.formRegistro.getRawValue().apellido,id.toString());
     if(this.formRegistro.valid){
       this.formRegistro.controls['pais'].setValue("");
       this.formRegistro.controls['nombre'].setValue("");

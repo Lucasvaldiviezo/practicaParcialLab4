@@ -1,13 +1,13 @@
 <h1>Listado peliculas!</h1>
 <table border=1 class="tablaPeliculas">
 	<thead>
-		<th>id</th>
-		<th>nombre</th>
-		<th>tipo</th>
-		<th>fechaEstreno</th>
-		<th>cantidadPublico</th>
+		<th>ID</th>
+		<th>Nombre</th>
+		<th>Tipo</th>
+		<th>Fecha de Estreno</th>
+		<th>Cantidad Publico</th>
+		<th>Seleccionar</th>
 	</thead>
-
   <tbody>
   <tr *ngFor="let pelicula of listadoPeliculas" (peliculaSeleccionada)="mostrarDetalles($event)" >
     <td class="badge">{{pelicula.id}}</td>

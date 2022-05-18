@@ -27,7 +27,6 @@ export class FirestoreService {
 
   actualizarColeccionCompletaPeliculas(coleccion:any,pelicula:any)
   {
-    
       let idDocument:string =(pelicula.id).toString();
       this.firestore.collection(coleccion).doc(idDocument).set({
         nombre: pelicula.nombre,
@@ -45,13 +44,4 @@ export class FirestoreService {
   {
     this.firestore.collection("Peliculas").doc(id).update({urlImagen: url});
   }
-  
-  /*addActor(coleccion:any,actor:any)
-  {
-   /* this.firestore.collection(coleccion).doc(idDocument).set({
-      posicion: puntaje.posicion,
-      puntaje: puntaje.puntaje,
-      usuario: puntaje.usuario,
-    })
-  }*/
 }

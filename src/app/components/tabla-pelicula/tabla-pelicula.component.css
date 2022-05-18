@@ -1,4 +1,33 @@
-.tablaPeliculas{
+.titulo{
+    text-align: center;
+}
+
+.tablaPeliculas
+{
+    position: relative;
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
+}
+
+th
+{
+    background-color: rgba(0, 0, 0, 0.959);
+    color: white;
+    
+}
+
+th, td
+{
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #b6b6b6;}
+
+tbody{
+    background-color: rgb(255, 255, 255);
+    border-radius: 80%;
 }

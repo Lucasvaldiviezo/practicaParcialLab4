@@ -1,7 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Actor } from 'src/app/entidades/actor/actor';
-import { Paises } from 'src/app/entidades/paises/paises';
-import { Pelicula } from 'src/app/entidades/pelicula';
 import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 
 @Component({

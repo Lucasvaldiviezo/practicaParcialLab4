@@ -33,7 +33,7 @@ export class PeliculaAltaComponent implements OnInit {
       'actor': ['', [Validators.required]],
     });
     this.auxPais = new Paises("","","");
-    this.actorParaPelicula = new Actor(0,"","",this.auxPais,0);
+    this.actorParaPelicula = new Actor(0,"","",this.auxPais,0,"");
     this.listaActores = [];
     this.listaPeliculas = [];
         
@@ -48,7 +48,7 @@ export class PeliculaAltaComponent implements OnInit {
 
   cargarListaPeliculas(){
     let auxListaPeliculas:Pelicula[] = [];
-    let auxActor:Actor = new Actor(0,"","",this.auxPais,0);
+    let auxActor:Actor = new Actor(0,"","",this.auxPais,0,"");
     let tamañoLista = this.listaDeFireStore.length;
     for(let i=0; i < tamañoLista;i++)
     {
@@ -86,7 +86,7 @@ export class PeliculaAltaComponent implements OnInit {
     this.formRegistro.getRawValue().tipo,
     this.formRegistro.getRawValue().fechaEstreno,
     +this.formRegistro.getRawValue().cantidadPublico,
-    "hola",
+    "",
     this.actorParaPelicula);
     this.listaPeliculas.push(pelicula);
     this.fireStore.actualizarColeccionCompletaPeliculas("Peliculas",pelicula);
@@ -115,7 +115,7 @@ export class PeliculaAltaComponent implements OnInit {
 
   buscarActor(actorBuscado:string,listaActores:Actor[]):Actor{
     let nombreApeActor:string;
-    let auxActor:Actor = new Actor(0,"","",this.auxPais,0);
+    let auxActor:Actor = new Actor(0,"","",this.auxPais,0,"");
     for(let i=0;i<this.listaActores.length;i++)
     {
       nombreApeActor = listaActores[i].nombre + " " + listaActores[i].apellido;

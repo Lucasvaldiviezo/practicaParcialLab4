@@ -1,15 +1,15 @@
 .listadoPeliculas{
-    position: absolute;
-    right:58.5%;
-    width: 55%;
+    position: relative;
+    right:46%;
+    width: 700px;
 }
 
 .detallePais{
-    position: absolute;
-    left:40%;
+    position: relative;
+    right: 15%;
 }
 
 .detalleActor{
-    position: absolute;
-    left:80%;
+    position: relative;
+    left:25%;
 }

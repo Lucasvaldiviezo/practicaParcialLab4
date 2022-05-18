@@ -13,7 +13,7 @@ export class ActorPeliculaComponent implements OnInit {
   auxPais:Paises;
   constructor() { 
     this.auxPais = new Paises("","","");
-    this.actorParaDetalles = new Actor(0,"","",this.auxPais,0);
+    this.actorParaDetalles = new Actor(0,"","",this.auxPais,0,"");
     this.nombreActor = "";
   }
 

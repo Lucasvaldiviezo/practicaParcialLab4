@@ -30,7 +30,7 @@ export class ActorListadoComponent implements OnInit {
     for(let i=0; i < listaACargar.length;i++)
     {
       let auxPais = new Paises(listaACargar[i].paisNombre,listaACargar[i].paisContinente,listaACargar[i].paisBandera);
-      let auxActor = new Actor(+listaACargar[i].actorId,listaACargar[i].nombre,listaACargar[i].apellido,auxPais,listaACargar[i].edad);
+      let auxActor = new Actor(+listaACargar[i].actorId,listaACargar[i].nombre,listaACargar[i].apellido,auxPais,listaACargar[i].edad,listaACargar[i].urlImagen);
       auxListaActores.push(auxActor);
     }
     this.listaActores = auxListaActores;

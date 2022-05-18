@@ -47,12 +47,21 @@
                     El pais es requerido
                     </small>
                  </div>
-                <!--CIUDAD-->
+                 <!--IMAGEN ACTOR-->
+                 <div>
+                    <input type="file" id="inputFile" accept=".png, .jpg, .jpeg" multiple (change)="obtenerImagen($event)">
+                    <label>Subir Imagen:</label>
+                    <label for="inputFile" class="labelInputFile">
+                        <img src="https://icons-for-free.com/download-icon-cloud+upload+file+storage+upload+icon-1320190558968694328_512.png" alt="upload file">
+                    </label>
+                </div>
                 <!--BOTON ACEPTAR-->
                 <input type="submit" class="btnAceptar" value="Aceptar" [disabled]="formRegistro.invalid">
             </form>
-        </div>
-        
+        </div>  
+</div>
+<div class="mostradorDeImagen">
+    <img *ngIf="mostrarImagen" src="{{imagen}}" alt="imagenSubida" class="muestraImagen" >
 </div>
 <app-tabla-paises (paisSeleccionado)="tomarPaisParaActor($event)"></app-tabla-paises>  
  

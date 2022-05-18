@@ -34,6 +34,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NavbarComponent,
     TablaPaisesComponent,
     TablaActorComponent,
+    
   ],
   imports: [
     BrowserModule,

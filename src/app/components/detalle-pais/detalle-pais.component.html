@@ -1,0 +1,10 @@
+<div class="contenedor">
+    <p class="titulo">Pais del Actor:</p>
+    <div class="infoBox">
+        <label class="textoInfo">Nombre Pais: </label>
+        <label class="paisInfo" *ngIf="mostrarInfo">{{actorRecibido.pais.nombre}}</label><br><br>
+        <label class="textoInfo">Continente Pais: </label>
+        <label class="paisInfo" *ngIf="mostrarInfo">{{actorRecibido.pais.continente}}</label><br><br>
+    </div>
+        <img  *ngIf="mostrarInfo" src="{{actorRecibido.pais.bandera}}">
+</div>

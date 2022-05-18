@@ -1,0 +1,12 @@
+<div class="contenedor">
+    <p class="titulo">Informacion del Actor:</p>
+    <div class="infoBox">
+        <label class="textoInfo">Nombre: </label>
+        <label class="actorInfo" *ngIf="mostrarInfo">{{actorRecibido.nombre}}</label><br><br>
+        <label class="textoInfo">Apellido: </label>
+        <label class="actorInfo" *ngIf="mostrarInfo">{{actorRecibido.apellido}}</label><br><br>
+        <label class="textoInfo">Edad: </label>
+        <label class="actorInfo" *ngIf="mostrarInfo">{{actorRecibido.edad}}</label><br><br>
+    </div>
+        <img  *ngIf="mostrarInfo" src="{{actorRecibido.urlImagen}}">
+</div>

@@ -1,0 +1,51 @@
+.contenedor{
+    background-color: rgb(187, 87, 87);
+    border-style:ridge;
+    border-width: 2px;
+    border-color: black;
+    width: 350px;
+    height: 300px;
+    position: absolute;
+    top:10%;
+    display:block;
+    width: 350px;
+    height: 330px;
+}
+
+.infoBox{
+    position: relative;
+    top:15%;
+    left:5%
+}
+
+img{
+    display:block; 
+    width:120px; 
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+    position: relative;
+    bottom:38%;
+    left:25%;
+    border-style:ridge;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+}
+
+.textoInfo{
+    font-weight: 700;
+    color: white;
+}
+
+.actorInfo{
+    padding: 0 10px;
+    font-weight: 400;
+}
+
+.titulo{
+    position: relative;
+    top:5%;
+    text-align: center;
+    font-size:30px;
+    
+}

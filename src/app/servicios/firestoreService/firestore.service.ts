@@ -11,20 +11,18 @@ export class FirestoreService {
   getCollection(coleccion:any, nombreIdField:string){
     return this.firestore.collection(coleccion).valueChanges({ idField: nombreIdField });
   }
-  actualizarColeccionCompletaActores(coleccion:any,datos:any)
+  actualizarColeccionCompletaActores(coleccion:any,actor:any)
   {
-    for(let i = 0; i < datos.length; i++)
-    {
-      let idDocument:string =(i+1).toString();
-      this.firestore.collection(coleccion).doc(idDocument).set({
-        nombre: datos[i].nombre,
-        apellido: datos[i].apellido,
-        paisNombre: datos[i].pais.nombre,
-        paisBandera: datos[i].pais.bandera,
-        paisContinente:datos[i].pais.continente,
-        edad: datos[i].edad,
-      });
-    } 
+    let idDocument:string =(actor.id).toString();
+    this.firestore.collection(coleccion).doc(idDocument).set({
+      nombre: actor.nombre,
+      apellido: actor.apellido,
+      paisNombre: actor.pais.nombre,
+      paisBandera: actor.pais.bandera,
+      paisContinente:actor.pais.continente,
+      edad: actor.edad,
+      urlImagen: actor.urlImagen
+    });
   }
 
   actualizarColeccionCompletaPeliculas(coleccion:any,pelicula:any)

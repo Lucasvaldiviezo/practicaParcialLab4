@@ -5,8 +5,6 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Edad</th>
-            <th>Pais</th>
         </tr>
     </thead>
     <tbody class="tCuerpo" *ngFor="let actor of listaActores" (click)="seleccionarActor(actor)">
@@ -14,8 +12,6 @@
             <td>{{actor.id}}</td>
             <td>{{actor.nombre}}</td>
             <td>{{actor.apellido}}</td>
-            <td>{{actor.edad}}</td>
-            <td>{{actor.pais.nombre}}</td>
         </tr>  
     </tbody>
 </table> 

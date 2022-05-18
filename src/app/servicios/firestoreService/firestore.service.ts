@@ -36,12 +36,11 @@ export class FirestoreService {
         urlImagen: pelicula.urlImagen,
         actor: pelicula.actor.nombre + " " + pelicula.actor.apellido,
         idActor: pelicula.actor.id
-      });
-    
+      }); 
   }
 
-  actualizarURL(id:string,url:string)
+  actualizarURL(coleccion:string,id:string,url:string)
   {
-    this.firestore.collection("Peliculas").doc(id).update({urlImagen: url});
+    this.firestore.collection(coleccion).doc(id).update({urlImagen: url});
   }
 }

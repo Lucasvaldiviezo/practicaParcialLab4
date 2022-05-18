@@ -80,3 +80,9 @@ input[type=text]
     padding: 10px 10px;
     display: block;
 }
+
+.gifCargando{
+    position: absolute;
+    top:30%;
+    left:30%;
+}

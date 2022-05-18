@@ -18,6 +18,7 @@ export class ActorAltaComponent implements OnInit {
   archivoSubido:any;
   imagen:any;
   mostrarImagen:boolean = false;
+  subiendoImagen:boolean = false;
   constructor(public fb: FormBuilder, public fireStore:FirestoreService,public storageService:StorageService) {
     this.formRegistro = this.fb.group({
       'nombre': ['', [Validators.required, this.spacesValidator]],
@@ -46,28 +47,38 @@ export class ActorAltaComponent implements OnInit {
       auxListaActores.push(auxActor);
     }
     this.listaActores = auxListaActores;
+    this.listaActores.sort(function(elemento1,elemento2){
+      return elemento1.id - elemento2.id;
+    });
   }
 
   cargarActor()
   {
+
     let id = this.listaActores.length+1;
-    this.subirImagen(id+"+"+this.formRegistro.getRawValue().nombre+this.formRegistro.getRawValue().apellido);
-    let actor = new Actor(id,
-    this.formRegistro.getRawValue().nombre,
-    this.formRegistro.getRawValue().apellido,
-    this.paisParaActor,
-    +this.formRegistro.getRawValue().edad,
-    "")
-    this.fireStore.actualizarColeccionCompletaActores("Actores",actor);
-    this.storageService.obtenerURLImagen("actores",this.formRegistro.getRawValue().nombre+this.formRegistro.getRawValue().apellido,id.toString());
-    if(this.formRegistro.valid){
-      this.formRegistro.controls['pais'].setValue("");
-      this.formRegistro.controls['nombre'].setValue("");
-      this.formRegistro.controls['apellido'].setValue("");
-      this.formRegistro.controls['edad'].setValue("");
-    }
-    this.archivoSubido='';
-    this.mostrarImagen = false;
+    this.subiendoImagen = true;
+    let nombreImagen = id+"+"+this.formRegistro.getRawValue().nombre+this.formRegistro.getRawValue().apellido;
+    this.storageService.subirImagenStorage(nombreImagen,this.archivoSubido[0],"actores/").then(urlImagen =>{
+      if(urlImagen !=null)
+      {
+        let actor = new Actor(id,
+          this.formRegistro.getRawValue().nombre,
+          this.formRegistro.getRawValue().apellido,
+          this.paisParaActor,
+          +this.formRegistro.getRawValue().edad,
+          urlImagen);
+        this.fireStore.actualizarColeccionCompletaActores("Actores",actor);
+        if(this.formRegistro.valid){
+          this.formRegistro.controls['pais'].setValue("");
+          this.formRegistro.controls['nombre'].setValue("");
+          this.formRegistro.controls['apellido'].setValue("");
+          this.formRegistro.controls['edad'].setValue("");
+        }
+        this.archivoSubido='';
+        this.mostrarImagen = false;
+        this.subiendoImagen = false;
+      } 
+    })
   }
 
   tomarPaisParaActor(nuevoPais:Paises)
@@ -85,10 +96,6 @@ export class ActorAltaComponent implements OnInit {
       this.imagen = reader.result;
       this.mostrarImagen = true;
     }
-  }
-
-  subirImagen(idImagen:string){
-    this.storageService.subirImagen(idImagen,this.archivoSubido[0],"actores/");
   }
 
   private spacesValidator(control: AbstractControl): null | object {

@@ -9,8 +9,7 @@ import { ActorAltaComponent } from './components/actor-alta/actor-alta.component
 import { ActorListadoComponent } from './components/actor-listado/actor-listado.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'bienvenido', pathMatch:'full'},
-  {path:'bienvenido', component:BienvenidoComponent},
+  {path: '', redirectTo: 'busqueda', pathMatch:'full'},
   {path:'busqueda', component:BusquedaComponent},
   {path:'peliculas/alta', component:PeliculaAltaComponent},
   //{path:'peliculas/listado', component:PeliculaListadoComponent},

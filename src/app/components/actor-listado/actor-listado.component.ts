@@ -34,6 +34,9 @@ export class ActorListadoComponent implements OnInit {
       auxListaActores.push(auxActor);
     }
     this.listaActores = auxListaActores;
+    this.listaActores.sort(function(elemento1,elemento2){
+      return elemento1.id - elemento2.id;
+    });
   }
 
   seleccionarActor(actorTabla:Actor){

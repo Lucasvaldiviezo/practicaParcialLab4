@@ -4,10 +4,10 @@
 
 .tablaCompleta
 {
-    left:25%;
+    left:30%;
     position: relative;
     border-collapse: collapse;
-    width: 50%;
+    width: 800px;
     border-radius: 50%;
 }
 

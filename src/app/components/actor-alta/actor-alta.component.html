@@ -63,5 +63,6 @@
 <div class="mostradorDeImagen">
     <img *ngIf="mostrarImagen" src="{{imagen}}" alt="imagenSubida" class="muestraImagen" >
 </div>
+<img *ngIf="subiendoImagen" src="/assets/uploading.gif" alt="imagenSubida" class="gifCargando">
 <app-tabla-paises (paisSeleccionado)="tomarPaisParaActor($event)"></app-tabla-paises>  
  

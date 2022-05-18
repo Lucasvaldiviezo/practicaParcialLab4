@@ -14,13 +14,15 @@ export class StorageService {
     this.obtenerImagenes("peliculas");
   }
 
-  subirImagen(nombre:string,imgBase64:any,carpeta:string){
-    this.storageRef = ref(this.storage,carpeta+nombre);
-    uploadBytes(this.storageRef,imgBase64)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => console.log(error));
+  async subirImagenStorage(nombre:string,imgBase64:any,carpeta:string){
+    try{
+      this.storageRef = ref(this.storage,carpeta+nombre);
+      let respuesta = await uploadBytes(this.storageRef,imgBase64)
+        return await getDownloadURL(respuesta.ref)
+    }catch(error){
+      console.log(error);
+      return null;
+    }
   }
 
   obtenerImagenes(carpeta:string){
@@ -32,7 +34,7 @@ export class StorageService {
     .catch(error=>console.log(error));
   }
 
-  obtenerURLImagen(carpeta:string,nombreImagen:string,idImagen:string){
+  obtenerURLImagen(carpeta:string,nombreImagen:string,idImagen:string,coleccion:string){
     let imagenBuscada = carpeta + "/" + idImagen +"+"+ nombreImagen;
     this.storageRef = ref(this.storage, carpeta);
     listAll(this.storageRef)
@@ -42,14 +44,13 @@ export class StorageService {
         {
           getDownloadURL(item)
           .then(response=>{
-            this.firestore.actualizarURL(idImagen,response);
+            this.firestore.actualizarURL(idImagen,response,coleccion);
           })
           .catch(error=> console.log(error)); 
         }   
       }
     })
     .catch(error=>console.log(error));
-    
   }
   
 }

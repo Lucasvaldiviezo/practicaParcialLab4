@@ -22,9 +22,10 @@ export class PeliculaAltaComponent implements OnInit {
   imagen:any;
   archivoSubido:any;
   mostrarImagen:boolean = false;
+  subiendoImagen:boolean = false;
  
   url:string ="";
-  constructor(public fb: FormBuilder, public storageService:StorageService, public fireStore:FirestoreService) {
+  constructor(public fb: FormBuilder, public storageService:StorageService, public fireStoreService:FirestoreService) {
     this.formRegistro = this.fb.group({
       'nombre': ['', [Validators.required]],
       'tipo': ['', Validators.required],
@@ -40,7 +41,7 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fireStore.getCollection("Peliculas","peliculaId").subscribe((resp:any)=>{
+    this.fireStoreService.getCollection("Peliculas","peliculaId").subscribe((resp:any)=>{
       this.listaDeFireStore = resp; 
       this.cargarListaPeliculas();
     });    
@@ -80,27 +81,33 @@ export class PeliculaAltaComponent implements OnInit {
   cargarPelicula()
   {
     let id = this.listaPeliculas.length+1;
-    this.subirImagen(id+"+"+this.formRegistro.getRawValue().nombre);
-    let pelicula = new Pelicula(id,
-    this.formRegistro.getRawValue().nombre,
-    this.formRegistro.getRawValue().tipo,
-    this.formRegistro.getRawValue().fechaEstreno,
-    +this.formRegistro.getRawValue().cantidadPublico,
-    "",
-    this.actorParaPelicula);
-    this.listaPeliculas.push(pelicula);
-    this.fireStore.actualizarColeccionCompletaPeliculas("Peliculas",pelicula);
-    this.storageService.obtenerURLImagen("peliculas",this.formRegistro.getRawValue().nombre,id.toString());
-    if(this.formRegistro.valid){
-      this.formRegistro.controls['nombre'].setValue("");
-      this.formRegistro.controls['tipo'].setValue("");
-      this.formRegistro.controls['fechaEstreno'].setValue("");
-      this.formRegistro.controls['cantidadPublico'].setValue("");
-      this.formRegistro.controls['actor'].setValue("");
-    }
-    this.archivoSubido='';
-    this.mostrarImagen = false;
-  }
+    this.subiendoImagen = true;
+    let nombreImagen = id+"+"+this.formRegistro.getRawValue().nombre;
+    this.storageService.subirImagenStorage(nombreImagen,this.archivoSubido[0],"peliculas/").then(urlImagen =>{
+      if(urlImagen !=null)
+      {
+          let pelicula = new Pelicula(id,
+          this.formRegistro.getRawValue().nombre,
+          this.formRegistro.getRawValue().tipo,
+          this.formRegistro.getRawValue().fechaEstreno,
+          +this.formRegistro.getRawValue().cantidadPublico,
+          urlImagen,
+          this.actorParaPelicula);
+          this.listaPeliculas.push(pelicula);
+          this.fireStoreService.actualizarColeccionCompletaPeliculas("Peliculas",pelicula);
+          if(this.formRegistro.valid){
+            this.formRegistro.controls['nombre'].setValue("");
+            this.formRegistro.controls['tipo'].setValue("");
+            this.formRegistro.controls['fechaEstreno'].setValue("");
+            this.formRegistro.controls['cantidadPublico'].setValue("");
+            this.formRegistro.controls['actor'].setValue("");
+          }
+          this.archivoSubido='';
+          this.mostrarImagen = false;
+          this.subiendoImagen = false;
+      } 
+  });    
+}
 
   obtenerImagen(imagen:any)
   {
@@ -128,11 +135,5 @@ export class PeliculaAltaComponent implements OnInit {
     }
     return auxActor;
   }
-
-
-  subirImagen(idImagen:string){
-    this.storageService.subirImagen(idImagen,this.archivoSubido[0],"peliculas/");
-  }
-
 
 }

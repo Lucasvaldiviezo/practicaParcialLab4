@@ -3,16 +3,17 @@
     left:60%;
     top:10.5%;
     width: 30%;
-    height: 500px;
+    height: 700px;
     background-color:rgb(221, 118, 118);
     overflow-x: hidden;
     overflow-y: scroll;
-    text-align:center;
     border-width: 10px;
     border-color: rgb(206, 99, 0);
     border-style:solid;
     border-radius: 5px;
     padding: 10px 50px;
+    display: block;
+    text-align: center;
 }
 
 .titulo{
@@ -23,9 +24,8 @@
     border-width: 2px;
     border-color: black;
     border-style:groove;
-    padding: 2px 2px;
+    padding: 1px 1px;
     background-color: white;
-    margin: 2px;
 }
 
 .renglon:hover{
@@ -33,19 +33,27 @@
     cursor: pointer;
 }
 
-.imagen-bandera{
-    width: 80px;
-    height: 60px;
+.imagen-actor{
+    position: relative;
+    width:100px; 
+    height:auto;
     border-width: 2px;
     border-color: rgb(0, 0, 0);
     border-style:solid;
+    margin-bottom: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .texto{
     color:red;
     font-weight:700;
+    position: relative;
+    top:10%;
 }
 
-p{
+.infoActor{
     font-weight: 700;
+    position: relative;
 }
